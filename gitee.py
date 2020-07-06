@@ -4,13 +4,14 @@ from configparser import ConfigParser
 
 
 def get_header(config):
+    """url header"""
     header = {}
     for (each_key, each_val) in config.items("headers"):
         header[each_key] = each_val
     return header
 
 
-class Gitee:
+class Gitee(object):
     """gitee"""
     def __init__(self, config_path):
         config = ConfigParser()
@@ -18,11 +19,8 @@ class Gitee:
         self.headers = get_header(config)
         self.baseurl = config.get("url", "baseurl")
 
-    def to_string(self):
-        print(self.headers)
-        print(self.baseurl)
-
     def get_orgs_info(self, org_name):
+        """get organization info"""
         orgs_url = self.baseurl + "/orgs/" + org_name
 
         response = requests.get(orgs_url)

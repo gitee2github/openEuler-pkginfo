@@ -1,8 +1,12 @@
-import os
+"""
+This is main class for the tool
+"""
+
+
 import logging
 import requests
 import argparse
-from gitee import Gitee
+import gitee
 
 
 def main():
@@ -12,13 +16,18 @@ def main():
         return
     commands()
 
+
 def commands():
-    gitee = Gitee("gitee.conf")
+    """list all commands in tool"""
+    my_gitee = gitee.Gitee("gitee.conf")
     parser = argparse.ArgumentParser(description="test argparse")
     parser.add_argument("-O", "--organization", type=str, help="get info about an organization")
     args = parser.parse_args()
 
     if args.organization:
-        gitee.get_orgs_info(args.organization)
+        my_gitee.get_orgs_info(args.organization)
 
-main()
+
+if __name__ == '__main__':
+    main()
+
