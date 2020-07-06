@@ -26,8 +26,8 @@ Collection of query tools for easily maintaining openEuler
 **TODO**
 
 (release v0.1)
-- 使用python连接码云提供的API页面，获取数据
-- 组织信息统计：显示有多少仓库，仓库链接等信息
+- 使用python连接码云提供的API页面，获取数据     √
+- 组织信息统计：显示有多少仓库，仓库链接等信息   √
 - 仓库信息统计：显示有多少分支，最近发布版本等信息
 - 个人贡献统计：显示用户对仓库的贡献（提交代码量，提出的issue等信息）
 
