@@ -1,3 +1,7 @@
+"""
+This is gitee.com helper
+"""
+
 import logging
 import requests
 from configparser import ConfigParser
