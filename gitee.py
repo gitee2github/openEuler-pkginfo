@@ -24,16 +24,20 @@ class Gitee:
 
     def get_orgs_info(self, org_name):
         orgs_url = self.baseurl + "/orgs/" + org_name
-        print(orgs_url)
 
         response = requests.get(orgs_url)
-        temp = response.json()[0]
-        print(temp.get("login"))
-        print(temp.get("url"))
+        temp = response.json()
+        print("orgs:\t" + temp.get("login"))
+        print("url:\t" + temp.get("url"))
 
         reps_url = orgs_url + "/repos"
         response = requests.get(reps_url, headers=self.headers)
-        print(response.headers["total_count"])
+        total_page = response.headers["total_page"]
+        print("There are " + response.headers["total_count"] + " repositories in " + temp.get("login"))
         print("=================================================")
-        for each in response.json():
-            print(each.get("human_name") + "\t" + each.get("url"))
+        
+        page = 1
+        while (page <= total_page):
+            response = requests.get(reps_url + "?page=" + page++, headers=self.headers)
+            for each in response.json():
+                print(each.get("human_name") + "\n\t" + each.get("url"))
