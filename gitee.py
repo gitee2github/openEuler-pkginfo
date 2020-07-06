@@ -37,7 +37,8 @@ class Gitee:
         print("=================================================")
         
         page = 1
-        while (page <= total_page):
-            response = requests.get(reps_url + "?page=" + page++, headers=self.headers)
+        while (page <= int(total_page)):
+            response = requests.get(reps_url + "?page=" + str(page), headers=self.headers)
+            page += 1
             for each in response.json():
                 print(each.get("human_name") + "\n\t" + each.get("url"))
