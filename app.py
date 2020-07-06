@@ -3,6 +3,7 @@ This is main class for the tool
 """
 
 
+import os
 import logging
 import requests
 import argparse
