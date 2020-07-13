@@ -22,15 +22,16 @@ def get_param(page):
     return params
 
 
-def is_contains(value, str):
+def is_contains(value, strs):
     """if value contains str"""
     value = value.lower()
-    str = str.lower()
-    return str in value
+    strs = strs.lower()
+    return strs in value
 
 
-def is_start_with(value, str):
+def is_start_with(value, strs):
     """if value start with str"""
     value = value.lower()
-    str = str.lower()
-    return value.startswith(str)
+    strs = strs.lower()
+    return value.startswith(strs)
+

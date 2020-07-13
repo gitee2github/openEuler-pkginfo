@@ -43,7 +43,7 @@ class Gitee(object):
                 if print_each and start is not None:
                     print_each = utils.is_start_with(temp, start)
                 if print_each:
-                    pirint(temp + "\n\t" + each.get("url"))
+                    print(temp + "\n\t" + each.get("url"))
                     count += 1
         print("=================================================")
         print("Find " + str(count) + " satisfied")
